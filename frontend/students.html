@@ -1,0 +1,795 @@
+<!--==========================================================
+Project Name : Student Management System
+
+File Name    : students.html
+
+Description  :
+This page displays all student records with search,
+filter, edit, delete and view functionalities.
+
+Author       : Tamil Vanan
+Version      : 1.0
+===========================================================-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--==================================================
+                    BASIC SETTINGS
+    ==================================================-->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Students | Student Management System</title>
+
+    <!--==================================================
+                    GOOGLE FONT
+    ==================================================-->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!--==================================================
+                    FONT AWESOME
+    ==================================================-->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!--==================================================
+                    CSS FILES
+    ==================================================-->
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/student.css">
+
+</head>
+
+<body>
+
+    <!--==================================================
+                    STUDENT PAGE
+    ==================================================-->
+
+    <div class="dashboard-container">
+
+        <!--==================================================
+                        SIDEBAR
+        ==================================================-->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <i class="fa-solid fa-user-graduate"></i>
+
+                <h2>SMS</h2>
+
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <ul>
+
+                    <li>
+
+                        <a href="dashboard.html">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            <span>Dashboard</span>
+
+                        </a>
+
+                    </li>
+
+                    <li class="active">
+
+                        <a href="students.html">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            <span>Students</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="add-student.html">
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                            <span>Add Student</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="profile.html">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <span>Profile</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="index.html">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <span>Logout</span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!--==================================================
+                    MAIN CONTENT
+        ==================================================-->
+
+        <main class="main-content">
+
+                        <!--==================================================
+                        PAGE HEADER
+            ==================================================-->
+
+            <header class="page-header">
+
+                <div class="page-title">
+
+                    <h1>Student Management</h1>
+
+                    <p>
+                        View, search, edit and manage all student records.
+                    </p>
+
+                </div>
+
+                <div class="page-actions">
+
+                    <a href="add-student.html" class="add-btn">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Add Student
+
+                    </a>
+
+                </div>
+
+            </header>
+
+            <!--==================================================
+                        SEARCH & FILTER
+            ==================================================-->
+
+            <section class="filter-section">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="studentSearch"
+                        placeholder="Search by Student Name or ID">
+
+                </div>
+
+                <div class="filter-group">
+
+                    <select id="departmentFilter">
+
+                        <option value="">All Departments</option>
+
+                        <option>AI & DS</option>
+
+                        <option>CSE</option>
+
+                        <option>IT</option>
+
+                        <option>ECE</option>
+
+                        <option>EEE</option>
+
+                        <option>Mechanical</option>
+
+                    </select>
+
+                    <select id="yearFilter">
+
+                        <option value="">All Years</option>
+
+                        <option>I Year</option>
+
+                        <option>II Year</option>
+
+                        <option>III Year</option>
+
+                        <option>IV Year</option>
+
+                    </select>
+
+                </div>
+
+            </section>
+                        <!--==================================================
+                        STUDENT TABLE
+            ==================================================-->
+
+            <section class="student-table-section">
+
+                <div class="table-header">
+
+                    <h2>Student Records</h2>
+
+                    <span>Total Students : 250</span>
+
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="student-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Student ID</th>
+
+                                <th>Name</th>
+
+                                <th>Gender</th>
+
+                                <th>Department</th>
+
+                                <th>Year</th>
+
+                                <th>Email</th>
+
+                                <th>Phone</th>
+
+                                <th>Status</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <!--==============================
+                                    STUDENT 1
+                            ==============================-->
+
+                            <tr>
+
+                                <td>STU001</td>
+
+                                <td>Rahul Kumar</td>
+
+                                <td>Male</td>
+
+                                <td>AI & DS</td>
+
+                                <td>II Year</td>
+
+                                <td>rahul@gmail.com</td>
+
+                                <td>9876543210</td>
+
+                                <td>
+
+                                    <span class="status active">
+
+                                        Active
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-btn">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                    </button>
+
+                                    <a href="edit-student.html"
+                                       class="edit-btn">
+
+                                        <i class="fa-solid fa-pen"></i>
+
+                                    </a>
+
+                                    <button class="delete-btn">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                            <!--==============================
+                                    STUDENT 2
+                            ==============================-->
+
+                            <tr>
+
+                                <td>STU002</td>
+
+                                <td>Priya Sharma</td>
+
+                                <td>Female</td>
+
+                                <td>CSE</td>
+
+                                <td>III Year</td>
+
+                                <td>priya@gmail.com</td>
+
+                                <td>9876501234</td>
+
+                                <td>
+
+                                    <span class="status active">
+
+                                        Active
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-btn">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                    </button>
+
+                                    <a href="edit-student.html"
+                                       class="edit-btn">
+
+                                        <i class="fa-solid fa-pen"></i>
+
+                                    </a>
+
+                                    <button class="delete-btn">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+                                                        <!--==============================
+                                    STUDENT 3
+                            ==============================-->
+
+                            <tr>
+
+                                <td>STU003</td>
+
+                                <td>Arun Prakash</td>
+
+                                <td>Male</td>
+
+                                <td>ECE</td>
+
+                                <td>I Year</td>
+
+                                <td>arun@gmail.com</td>
+
+                                <td>9123456780</td>
+
+                                <td>
+
+                                    <span class="status inactive">
+
+                                        Inactive
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-btn">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                    </button>
+
+                                    <a href="edit-student.html"
+                                       class="edit-btn">
+
+                                        <i class="fa-solid fa-pen"></i>
+
+                                    </a>
+
+                                    <button class="delete-btn">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                            <!--==============================
+                                    STUDENT 4
+                            ==============================-->
+
+                            <tr>
+
+                                <td>STU004</td>
+
+                                <td>Kavya R</td>
+
+                                <td>Female</td>
+
+                                <td>AI & DS</td>
+
+                                <td>IV Year</td>
+
+                                <td>kavya@gmail.com</td>
+
+                                <td>9876012345</td>
+
+                                <td>
+
+                                    <span class="status active">
+
+                                        Active
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-btn">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                    </button>
+
+                                    <a href="edit-student.html"
+                                       class="edit-btn">
+
+                                        <i class="fa-solid fa-pen"></i>
+
+                                    </a>
+
+                                    <button class="delete-btn">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                            <!--==============================
+                                    STUDENT 5
+                            ==============================-->
+
+                            <tr>
+
+                                <td>STU005</td>
+
+                                <td>Vignesh S</td>
+
+                                <td>Male</td>
+
+                                <td>Mechanical</td>
+
+                                <td>III Year</td>
+
+                                <td>vignesh@gmail.com</td>
+
+                                <td>9000012345</td>
+
+                                <td>
+
+                                    <span class="status active">
+
+                                        Active
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-btn">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                    </button>
+
+                                    <a href="edit-student.html"
+                                       class="edit-btn">
+
+                                        <i class="fa-solid fa-pen"></i>
+
+                                    </a>
+
+                                    <button class="delete-btn">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+                                                        <!--==============================
+                                    STUDENT 6
+                            ==============================-->
+
+                            <tr>
+
+                                <td>STU006</td>
+
+                                <td>Nisha K</td>
+
+                                <td>Female</td>
+
+                                <td>IT</td>
+
+                                <td>II Year</td>
+
+                                <td>nisha@gmail.com</td>
+
+                                <td>9789012345</td>
+
+                                <td>
+
+                                    <span class="status active">
+
+                                        Active
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-btn">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                    </button>
+
+                                    <a href="edit-student.html" class="edit-btn">
+
+                                        <i class="fa-solid fa-pen"></i>
+
+                                    </a>
+
+                                    <button class="delete-btn">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                            <!--==============================
+                                    STUDENT 7
+                            ==============================-->
+
+                            <tr>
+
+                                <td>STU007</td>
+
+                                <td>Sanjay M</td>
+
+                                <td>Male</td>
+
+                                <td>EEE</td>
+
+                                <td>IV Year</td>
+
+                                <td>sanjay@gmail.com</td>
+
+                                <td>9345012345</td>
+
+                                <td>
+
+                                    <span class="status inactive">
+
+                                        Inactive
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="view-btn">
+
+                                        <i class="fa-solid fa-eye"></i>
+
+                                    </button>
+
+                                    <a href="edit-student.html" class="edit-btn">
+
+                                        <i class="fa-solid fa-pen"></i>
+
+                                    </a>
+
+                                    <button class="delete-btn">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!--==================================================
+                        PAGINATION
+            ==================================================-->
+
+            <section class="pagination-section">
+
+                <button class="page-btn">
+
+                    <i class="fa-solid fa-angle-left"></i>
+
+                    Previous
+
+                </button>
+
+                <button class="page-btn active">
+
+                    1
+
+                </button>
+
+                <button class="page-btn">
+
+                    2
+
+                </button>
+
+                <button class="page-btn">
+
+                    3
+
+                </button>
+
+                <button class="page-btn">
+
+                    Next
+
+                    <i class="fa-solid fa-angle-right"></i>
+
+                </button>
+
+            </section>
+                        <!--==================================================
+                        STUDENT SUMMARY
+            ==================================================-->
+
+            <section class="student-summary">
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <h3>Total Students</h3>
+
+                    <h2>250</h2>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                    <h3>Active Students</h3>
+
+                    <h2>225</h2>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-user-xmark"></i>
+
+                    <h3>Inactive Students</h3>
+
+                    <h2>25</h2>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-building-columns"></i>
+
+                    <h3>Departments</h3>
+
+                    <h2>6</h2>
+
+                </div>
+
+            </section>
+
+            <!--==================================================
+                        PAGE FOOTER
+            ==================================================-->
+
+            <footer class="page-footer">
+
+                <p>
+
+                    © 2026 Student Management System |
+                    Developed by Tamil Vanan
+
+                </p>
+
+            </footer>
+                    </main>
+
+    </div>
+
+    <!--==================================================
+                    JAVASCRIPT FILE
+    ==================================================-->
+
+    <script src="js/student.js"></script>
+
+</body>
+
+</html>
