@@ -1,0 +1,629 @@
+<!--==========================================================
+Project Name : Student Management System
+
+File Name    : dashboard.html
+
+Description  :
+Administrator Dashboard for managing students,
+viewing statistics and accessing all system modules.
+
+Author       : Tamil Vanan
+Version      : 1.0
+===========================================================-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--============ BASIC SETTINGS ============-->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Student Management System</title>
+
+    <!--============ GOOGLE FONT ============-->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!--============ FONT AWESOME ============-->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!--============ CSS FILES ============-->
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+</head>
+
+<body>
+
+    <!--==================================================
+                    DASHBOARD START
+    ==================================================-->
+
+    <div class="dashboard-container">
+
+        <!--==========================================
+                    SIDEBAR
+        ==========================================-->
+
+        <aside class="sidebar">
+
+            <!-- Logo -->
+
+            <div class="sidebar-logo">
+
+                <i class="fa-solid fa-user-graduate"></i>
+
+                <h2>SMS</h2>
+
+            </div>
+
+            <!--============ MENU ============-->
+
+            <nav class="sidebar-menu">
+
+                <ul>
+
+                    <li class="active">
+
+                        <a href="dashboard.html">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            <span>Dashboard</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="students.html">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            <span>Students</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="add-student.html">
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                            <span>Add Student</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="profile.html">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <span>Profile</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="index.html">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <span>Logout</span>
+
+                        </a>
+
+                    </li>
+                                    </ul>
+
+            </nav>
+
+        </aside>
+
+        <!--==========================================
+                    MAIN CONTENT
+        ==========================================-->
+
+        <main class="main-content">
+
+            <!--============ TOP HEADER ============-->
+
+            <header class="top-header">
+
+                <div class="header-left">
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Welcome back, Administrator 👋
+                    </p>
+
+                </div>
+
+                <div class="header-right">
+
+                    <!-- Search Box -->
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            placeholder="Search student...">
+
+                    </div>
+
+                    <!-- Notification -->
+
+                    <div class="notification">
+
+                        <i class="fa-solid fa-bell"></i>
+
+                        <span class="notification-count">
+                            3
+                        </span>
+
+                    </div>
+
+                    <!-- Admin Profile -->
+
+                    <div class="admin-profile">
+
+                        <img
+                            src="images/user.png"
+                            alt="Admin">
+
+                        <div>
+
+                            <h4>
+                                Tamil Vanan
+                            </h4>
+
+                            <span>
+                                Administrator
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!--==========================================
+                    WELCOME BANNER
+            ==========================================-->
+
+            <section class="welcome-banner">
+
+                <div class="banner-content">
+
+                    <h2>
+                        Welcome to Student Management System
+                    </h2>
+
+                    <p>
+                        Manage students, monitor records, update
+                        information and maintain your institution
+                        efficiently from one dashboard.
+                    </p>
+
+                </div>
+
+            </section>
+                        <!--==========================================
+                    DASHBOARD STATISTICS
+            ==========================================-->
+
+            <section class="dashboard-cards">
+
+                <!--============ TOTAL STUDENTS ============-->
+
+                <div class="card">
+
+                    <div class="card-icon blue">
+
+                        <i class="fa-solid fa-user-graduate"></i>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3>Total Students</h3>
+
+                        <h2 id="totalStudents">250</h2>
+
+                        <p>+15 New Students This Month</p>
+
+                    </div>
+
+                </div>
+
+                <!--============ ACTIVE STUDENTS ============-->
+
+                <div class="card">
+
+                    <div class="card-icon green">
+
+                        <i class="fa-solid fa-user-check"></i>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3>Active Students</h3>
+
+                        <h2 id="activeStudents">225</h2>
+
+                        <p>90% Active Records</p>
+
+                    </div>
+
+                </div>
+
+                <!--============ COURSES ============-->
+
+                <div class="card">
+
+                    <div class="card-icon orange">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3>Courses</h3>
+
+                        <h2>12</h2>
+
+                        <p>Available Courses</p>
+
+                    </div>
+
+                </div>
+
+                <!--============ ADMINS ============-->
+
+                <div class="card">
+
+                    <div class="card-icon red">
+
+                        <i class="fa-solid fa-user-shield"></i>
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3>Administrators</h3>
+
+                        <h2>3</h2>
+
+                        <p>System Administrators</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!--==========================================
+                    QUICK ACTIONS
+            ==========================================-->
+
+            <section class="quick-actions">
+
+                <h2>Quick Actions</h2>
+
+                <div class="action-buttons">
+
+                    <a href="add-student.html" class="action-btn">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        <span>Add Student</span>
+
+                    </a>
+
+                    <a href="students.html" class="action-btn">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        <span>View Students</span>
+
+                    </a>
+
+                    <a href="profile.html" class="action-btn">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <span>My Profile</span>
+
+                    </a>
+
+                </div>
+
+            </section>
+                        <!--==========================================
+                    RECENT STUDENTS SECTION
+            ==========================================-->
+
+            <section class="recent-students">
+
+                <div class="section-header">
+
+                    <h2>Recent Students</h2>
+
+                    <a href="students.html" class="view-all-btn">
+
+                        View All
+
+                    </a>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Name</th>
+
+                                <th>Department</th>
+
+                                <th>Year</th>
+
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>STU001</td>
+
+                                <td>Rahul Kumar</td>
+
+                                <td>AI & DS</td>
+
+                                <td>II Year</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>STU002</td>
+
+                                <td>Priya Sharma</td>
+
+                                <td>CSE</td>
+
+                                <td>III Year</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>STU003</td>
+
+                                <td>Arun Kumar</td>
+
+                                <td>ECE</td>
+
+                                <td>I Year</td>
+
+                                <td>
+                                    <span class="status inactive">
+                                        Inactive
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>STU004</td>
+
+                                <td>Divya</td>
+
+                                <td>AI & DS</td>
+
+                                <td>IV Year</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+                        <!--==========================================
+                    DASHBOARD INFORMATION
+            ==========================================-->
+
+            <section class="dashboard-bottom">
+
+                <!--============ SYSTEM INFORMATION ============-->
+
+                <div class="info-card">
+
+                    <h2>System Information</h2>
+
+                    <ul>
+
+                        <li>
+
+                            <strong>Project Name :</strong>
+
+                            Student Management System
+
+                        </li>
+
+                        <li>
+
+                            <strong>Frontend :</strong>
+
+                            HTML, CSS & JavaScript
+
+                        </li>
+
+                        <li>
+
+                            <strong>Backend :</strong>
+
+                            Java Servlet
+
+                        </li>
+
+                        <li>
+
+                            <strong>Database :</strong>
+
+                            MySQL
+
+                        </li>
+
+                        <li>
+
+                            <strong>Version :</strong>
+
+                            1.0
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!--============ ADMIN DETAILS ============-->
+
+                <div class="info-card">
+
+                    <h2>Administrator Details</h2>
+
+                    <ul>
+
+                        <li>
+
+                            <strong>Name :</strong>
+
+                            Tamil Vanan
+
+                        </li>
+
+                        <li>
+
+                            <strong>Role :</strong>
+
+                            System Administrator
+
+                        </li>
+
+                        <li>
+
+                            <strong>Department :</strong>
+
+                            AI & DS
+
+                        </li>
+
+                        <li>
+
+                            <strong>Email :</strong>
+
+                            admin@sms.com
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <!--==========================================
+                    FOOTER
+            ==========================================-->
+
+            <footer class="dashboard-footer">
+
+                <p>
+
+                    © 2026 Student Management System |
+                    Developed by Tamil Vanan
+
+                </p>
+
+            </footer>
+                    </main>
+
+    </div>
+
+    <!--==================================================
+                    JAVASCRIPT FILE
+    ==================================================-->
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
