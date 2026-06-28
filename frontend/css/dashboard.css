@@ -1,0 +1,920 @@
+/*==========================================================
+
+Project Name : Student Management System
+
+File Name    : dashboard.css
+
+Description :
+Professional Administrator Dashboard Styling
+
+Author : Tamil Vanan
+
+Version : 1.0
+
+==========================================================*/
+
+
+/*==========================================================
+                    GOOGLE FONT
+==========================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/*==========================================================
+                    CSS RESET
+==========================================================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+/*==========================================================
+                    ROOT VARIABLES
+==========================================================*/
+
+:root{
+
+    --primary:#2563eb;
+
+    --primary-dark:#1d4ed8;
+
+    --success:#22c55e;
+
+    --warning:#f59e0b;
+
+    --danger:#ef4444;
+
+    --white:#ffffff;
+
+    --light:#f8fafc;
+
+    --gray:#94a3b8;
+
+    --dark:#0f172a;
+
+    --shadow:0 12px 30px rgba(0,0,0,.10);
+
+}
+
+
+/*==========================================================
+                    BODY
+==========================================================*/
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#eef2ff;
+
+    color:var(--dark);
+
+}
+
+
+/*==========================================================
+                DASHBOARD LAYOUT
+==========================================================*/
+
+.dashboard-container{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+
+/*==========================================================
+                    SIDEBAR
+==========================================================*/
+
+.sidebar{
+
+    width:260px;
+
+    background:linear-gradient(180deg,#1e3a8a,#2563eb);
+
+    color:white;
+
+    padding:30px 20px;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    height:100vh;
+
+    overflow-y:auto;
+
+}
+
+
+/*==========================================================
+                    LOGO
+==========================================================*/
+
+.sidebar-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:50px;
+
+}
+
+.sidebar-logo i{
+
+    font-size:38px;
+
+}
+
+.sidebar-logo h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+/*==========================================================
+                    SIDEBAR MENU
+==========================================================*/
+
+.sidebar-menu ul{
+
+    list-style:none;
+
+}
+
+.sidebar-menu ul li{
+
+    margin-bottom:12px;
+
+}
+
+.sidebar-menu ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    text-decoration:none;
+
+    color:var(--white);
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:0.3s ease;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.sidebar-menu ul li a i{
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:18px;
+
+}
+
+.sidebar-menu ul li a:hover{
+
+    background:rgba(255,255,255,0.15);
+
+    transform:translateX(6px);
+
+}
+
+.sidebar-menu ul li.active a{
+
+    background:rgba(255,255,255,0.25);
+
+}
+
+
+/*==========================================================
+                    MAIN CONTENT
+==========================================================*/
+
+.main-content{
+
+    margin-left:260px;
+
+    flex:1;
+
+    padding:30px;
+
+}
+
+
+/*==========================================================
+                    TOP HEADER
+==========================================================*/
+
+.top-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+    background:var(--white);
+
+    padding:20px 25px;
+
+    border-radius:15px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.header-left h1{
+
+    font-size:32px;
+
+    color:var(--dark);
+
+    margin-bottom:5px;
+
+}
+
+.header-left p{
+
+    color:var(--gray);
+
+    font-size:15px;
+
+}
+
+
+/*==========================================================
+                    HEADER RIGHT
+==========================================================*/
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+/*==========================================================
+                    SEARCH BOX
+==========================================================*/
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    background:var(--light);
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    width:280px;
+
+}
+
+.search-box i{
+
+    color:var(--gray);
+
+    margin-right:10px;
+
+}
+
+.search-box input{
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    width:100%;
+
+    font-size:15px;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+/*==========================================================
+                    NOTIFICATION
+==========================================================*/
+
+.notification{
+
+    position:relative;
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:var(--white);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:var(--shadow);
+
+    cursor:pointer;
+
+}
+
+.notification i{
+
+    font-size:20px;
+
+    color:var(--dark);
+
+}
+
+.notification-count{
+
+    position:absolute;
+
+    top:-5px;
+
+    right:-5px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:var(--danger);
+
+    color:var(--white);
+
+    font-size:11px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/*==========================================================
+                    ADMIN PROFILE
+==========================================================*/
+
+.admin-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:var(--white);
+
+    padding:10px 15px;
+
+    border-radius:12px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.admin-profile img{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.admin-profile h4{
+
+    font-size:16px;
+
+    color:var(--dark);
+
+}
+
+.admin-profile span{
+
+    font-size:13px;
+
+    color:var(--gray);
+
+}
+
+
+/*==========================================================
+                    WELCOME BANNER
+==========================================================*/
+
+.welcome-banner{
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:var(--white);
+
+    padding:35px;
+
+    border-radius:18px;
+
+    margin-bottom:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.banner-content h2{
+
+    font-size:30px;
+
+    margin-bottom:12px;
+
+}
+
+.banner-content p{
+
+    line-height:1.8;
+
+    max-width:700px;
+
+}
+/*==========================================================
+                    DASHBOARD CARDS
+==========================================================*/
+
+.dashboard-cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    background:var(--white);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:0.3s ease;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.card-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    color:var(--white);
+
+}
+
+.card-icon.blue{
+
+    background:#2563eb;
+
+}
+
+.card-icon.green{
+
+    background:#22c55e;
+
+}
+
+.card-icon.orange{
+
+    background:#f59e0b;
+
+}
+
+.card-icon.red{
+
+    background:#ef4444;
+
+}
+
+.card-info h3{
+
+    font-size:16px;
+
+    color:var(--gray);
+
+    margin-bottom:8px;
+
+}
+
+.card-info h2{
+
+    font-size:30px;
+
+    color:var(--dark);
+
+    margin-bottom:5px;
+
+}
+
+.card-info p{
+
+    font-size:13px;
+
+    color:var(--gray);
+
+}
+
+
+/*==========================================================
+                    QUICK ACTIONS
+==========================================================*/
+
+.quick-actions{
+
+    margin-bottom:35px;
+
+}
+
+.quick-actions h2{
+
+    margin-bottom:20px;
+
+    color:var(--dark);
+
+}
+
+.action-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.action-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:15px 22px;
+
+    border-radius:12px;
+
+    transition:0.3s;
+
+    font-weight:500;
+
+}
+
+.action-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-3px);
+
+}
+/*==========================================================
+                    RECENT STUDENTS TABLE
+==========================================================*/
+
+.recent-students{
+
+    background:var(--white);
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:35px;
+
+}
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.section-header h2{
+
+    color:var(--dark);
+
+    font-size:24px;
+
+}
+
+.view-all-btn{
+
+    text-decoration:none;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.table-container{
+
+    overflow-x:auto;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+table th{
+
+    background:#f1f5f9;
+
+    color:var(--dark);
+
+    padding:15px;
+
+    text-align:left;
+
+}
+
+table td{
+
+    padding:15px;
+
+    border-bottom:1px solid #e2e8f0;
+
+}
+
+table tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+
+/*==========================================================
+                    STATUS BADGES
+==========================================================*/
+
+.status{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.status.active{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+}
+
+.status.inactive{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+}
+
+
+/*==========================================================
+                    INFO CARDS
+==========================================================*/
+
+.dashboard-bottom{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+}
+
+.info-card{
+
+    background:var(--white);
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.info-card h2{
+
+    margin-bottom:18px;
+
+    color:var(--dark);
+
+}
+
+.info-card ul{
+
+    list-style:none;
+
+}
+
+.info-card ul li{
+
+    margin-bottom:12px;
+
+    color:#475569;
+
+}
+
+
+/*==========================================================
+                    FOOTER
+==========================================================*/
+
+.dashboard-footer{
+
+    text-align:center;
+
+    padding:20px;
+
+    color:var(--gray);
+
+    font-size:14px;
+
+}
+
+
+/*==========================================================
+                    RESPONSIVE DESIGN
+==========================================================*/
+
+@media(max-width:992px){
+
+    .sidebar{
+
+        position:relative;
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+    .dashboard-container{
+
+        flex-direction:column;
+
+    }
+
+    .main-content{
+
+        margin-left:0;
+
+    }
+
+    .top-header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        align-items:flex-start;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .search-box{
+
+        width:100%;
+
+    }
+
+    .header-right{
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .dashboard-cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .action-buttons{
+
+        flex-direction:column;
+
+    }
+
+}
