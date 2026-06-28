@@ -1,0 +1,503 @@
+<!--==========================================================
+Project Name : Student Management System
+
+File Name    : add-student.html
+
+Description  :
+This page allows the administrator to add
+a new student into the system.
+
+Author       : Tamil Vanan
+Version      : 1.0
+===========================================================-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--==================================================
+                    BASIC SETTINGS
+    ==================================================-->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Student | Student Management System</title>
+
+    <!--==================================================
+                    GOOGLE FONT
+    ==================================================-->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!--==================================================
+                    FONT AWESOME
+    ==================================================-->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!--==================================================
+                    CSS FILES
+    ==================================================-->
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/student.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!--==================================================
+                    SIDEBAR
+    ==================================================-->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-user-graduate"></i>
+
+            <h2>SMS</h2>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <ul>
+
+                <li>
+
+                    <a href="dashboard.html">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="students.html">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        Students
+
+                    </a>
+
+                </li>
+
+                <li class="active">
+
+                    <a href="add-student.html">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Add Student
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="profile.html">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        Profile
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="index.html">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Logout
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!--==================================================
+                    MAIN CONTENT
+    ==================================================-->
+
+    <main class="main-content">
+                <!--==================================================
+                        PAGE HEADER
+        ==================================================-->
+
+        <header class="page-header">
+
+            <div class="page-title">
+
+                <h1>Add New Student</h1>
+
+                <p>
+                    Enter the student information and save it to the system.
+                </p>
+
+            </div>
+
+            <div class="page-actions">
+
+                <a href="students.html" class="add-btn">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Back to Students
+
+                </a>
+
+            </div>
+
+        </header>
+
+        <!--==================================================
+                        ADD STUDENT FORM
+        ==================================================-->
+
+        <section class="student-form-section">
+
+            <form id="addStudentForm" autocomplete="off">
+
+                <div class="form-grid">
+
+                    <!-- Student ID -->
+
+                    <div class="form-group">
+
+                        <label for="studentId">
+
+                            Student ID
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentId"
+                            placeholder="Enter Student ID"
+                            required>
+
+                    </div>
+
+                    <!-- Student Name -->
+
+                    <div class="form-group">
+
+                        <label for="studentName">
+
+                            Student Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Enter Student Name"
+                            required>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+
+                            Email Address
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter Email Address"
+                            required>
+
+                    </div>
+
+                    <!-- Phone -->
+
+                    <div class="form-group">
+
+                        <label for="phone">
+
+                            Phone Number
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter Phone Number"
+                            required>
+
+                    </div>
+                                        <!-- Gender -->
+
+                    <div class="form-group">
+
+                        <label for="gender">
+
+                            Gender
+
+                        </label>
+
+                        <select id="gender" required>
+
+                            <option value="">Select Gender</option>
+
+                            <option value="Male">Male</option>
+
+                            <option value="Female">Female</option>
+
+                            <option value="Other">Other</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Department -->
+
+                    <div class="form-group">
+
+                        <label for="department">
+
+                            Department
+
+                        </label>
+
+                        <select id="department" required>
+
+                            <option value="">Select Department</option>
+
+                            <option value="AI & DS">AI & DS</option>
+
+                            <option value="CSE">CSE</option>
+
+                            <option value="IT">IT</option>
+
+                            <option value="ECE">ECE</option>
+
+                            <option value="EEE">EEE</option>
+
+                            <option value="Mechanical">Mechanical</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Academic Year -->
+
+                    <div class="form-group">
+
+                        <label for="year">
+
+                            Academic Year
+
+                        </label>
+
+                        <select id="year" required>
+
+                            <option value="">Select Year</option>
+
+                            <option value="I Year">I Year</option>
+
+                            <option value="II Year">II Year</option>
+
+                            <option value="III Year">III Year</option>
+
+                            <option value="IV Year">IV Year</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Date of Birth -->
+
+                    <div class="form-group">
+
+                        <label for="dob">
+
+                            Date of Birth
+
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dob"
+                            required>
+
+                    </div>
+                                        <!-- Parent / Guardian Name -->
+
+                    <div class="form-group">
+
+                        <label for="parentName">
+
+                            Parent / Guardian Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="parentName"
+                            placeholder="Enter Parent or Guardian Name"
+                            required>
+
+                    </div>
+
+                    <!-- Parent Contact -->
+
+                    <div class="form-group">
+
+                        <label for="parentPhone">
+
+                            Parent Contact Number
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="parentPhone"
+                            placeholder="Enter Parent Contact Number"
+                            required>
+
+                    </div>
+
+                    <!-- Address -->
+
+                    <div class="form-group full-width">
+
+                        <label for="address">
+
+                            Address
+
+                        </label>
+
+                        <textarea
+                            id="address"
+                            rows="5"
+                            placeholder="Enter Student Address"
+                            required></textarea>
+
+                    </div>
+
+                    <!-- Profile Photo -->
+
+                    <div class="form-group full-width">
+
+                        <label for="photo">
+
+                            Profile Photo
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="photo"
+                            accept="image/*">
+
+                        <small>
+
+                            Supported formats: JPG, JPEG, PNG (Optional)
+
+                        </small>
+
+                    </div>
+                                    </div>
+
+                <!--==================================================
+                            FORM ACTION BUTTONS
+                ==================================================-->
+
+                <div class="form-actions">
+
+                    <button type="submit" class="save-btn">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Student
+
+                    </button>
+
+                    <button type="reset" class="reset-btn">
+
+                        <i class="fa-solid fa-rotate-left"></i>
+
+                        Reset
+
+                    </button>
+
+                    <a href="students.html" class="cancel-btn">
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                        Cancel
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </section>
+                <!--==================================================
+                        PAGE FOOTER
+        ==================================================-->
+
+        <footer class="page-footer">
+
+            <p>
+
+                © 2026 Student Management System |
+                Developed by Tamil Vanan
+
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!--==================================================
+                JAVASCRIPT FILE
+===================================================-->
+
+<script src="js/student.js"></script>
+
+</body>
+
+</html>
