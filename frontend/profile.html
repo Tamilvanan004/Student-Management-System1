@@ -1,0 +1,507 @@
+<!--==========================================================
+Project Name : Student Management System
+
+File Name    : profile.html
+
+Description  :
+This page displays the administrator profile
+and allows profile information to be updated.
+
+Author       : Tamil Vanan
+Version      : 1.0
+===========================================================-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!--==================================================
+                    BASIC SETTINGS
+    ==================================================-->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Administrator Profile | Student Management System</title>
+
+    <!--==================================================
+                    GOOGLE FONTS
+    ==================================================-->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!--==================================================
+                    FONT AWESOME
+    ==================================================-->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!--==================================================
+                    CSS FILES
+    ==================================================-->
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link rel="stylesheet"
+          href="css/profile.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!--==================================================
+                        SIDEBAR
+    ==================================================-->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-user-graduate"></i>
+
+            <h2>SMS</h2>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <ul>
+
+                <li>
+
+                    <a href="dashboard.html">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="students.html">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        Students
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="add-student.html">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Add Student
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="profile.html" class="active">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        Profile
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="index.html">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Logout
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!--==================================================
+                    MAIN CONTENT
+    ==================================================-->
+
+    <main class="main-content">
+                <!--==================================================
+                        PAGE HEADER
+        ==================================================-->
+
+        <header class="page-header">
+
+            <div class="page-title">
+
+                <h1>Administrator Profile</h1>
+
+                <p>
+
+                    View and manage your administrator account details.
+
+                </p>
+
+            </div>
+
+        </header>
+
+        <!--==================================================
+                        PROFILE SECTION
+        ==================================================-->
+
+        <section class="profile-section">
+
+            <div class="profile-card">
+
+                <div class="profile-image">
+
+                    <img src="images/user.png"
+                         alt="Administrator Profile">
+
+                </div>
+
+                <div class="profile-info">
+
+                    <h2>Tamil Vanan</h2>
+
+                    <span class="role-badge">
+
+                        System Administrator
+
+                    </span>
+
+                    <p>
+
+                        Manage student records, monitor dashboard,
+                        and maintain the Student Management System.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--==================================================
+                        PROFILE DETAILS FORM
+        ==================================================-->
+
+        <section class="profile-form-section">
+
+            <form id="profileForm">
+
+                <div class="form-grid">
+
+                    <!-- Full Name -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+
+                            Full Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            value="Tamil Vanan"
+                            required>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+
+                            Email Address
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            value="admin@example.com"
+                            required>
+
+                    </div>
+
+                    <!-- Mobile Number -->
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+
+                            Mobile Number
+
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="mobile"
+                            value="9876543210"
+                            required>
+
+                    </div>
+
+                    <!-- Role -->
+
+                    <div class="form-group">
+
+                        <label for="role">
+
+                            Role
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="role"
+                            value="System Administrator"
+                            readonly>
+
+                    </div>
+                                        <!-- Department -->
+
+                    <div class="form-group">
+
+                        <label for="department">
+
+                            Department
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="department"
+                            value="Artificial Intelligence & Data Science"
+                            readonly>
+
+                    </div>
+
+                    <!-- Experience -->
+
+                    <div class="form-group">
+
+                        <label for="experience">
+
+                            Experience
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="experience"
+                            value="2 Years"
+                            readonly>
+
+                    </div>
+
+                    <!-- Office Address -->
+
+                    <div class="form-group full-width">
+
+                        <label for="officeAddress">
+
+                            Office Address
+
+                        </label>
+
+                        <textarea
+                            id="officeAddress"
+                            rows="4"
+                            required>
+Department of Artificial Intelligence & Data Science,
+ABC Engineering College,
+Chennai - 600001.
+                        </textarea>
+
+                    </div>
+
+                    <!-- About Administrator -->
+
+                    <div class="form-group full-width">
+
+                        <label for="about">
+
+                            About Administrator
+
+                        </label>
+
+                        <textarea
+                            id="about"
+                            rows="6"
+                            placeholder="Write something about yourself...">
+Responsible for managing students, maintaining records, monitoring academic information, and ensuring smooth operation of the Student Management System.
+                        </textarea>
+
+                    </div>
+                                        <!-- Current Password -->
+
+                    <div class="form-group">
+
+                        <label for="currentPassword">
+
+                            Current Password
+
+                        </label>
+
+                        <input
+                            type="password"
+                            id="currentPassword"
+                            placeholder="Enter Current Password">
+
+                    </div>
+
+                    <!-- New Password -->
+
+                    <div class="form-group">
+
+                        <label for="newPassword">
+
+                            New Password
+
+                        </label>
+
+                        <input
+                            type="password"
+                            id="newPassword"
+                            placeholder="Enter New Password">
+
+                    </div>
+
+                    <!-- Confirm New Password -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+
+                            Confirm New Password
+
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm New Password">
+
+                    </div>
+
+                    <!-- Profile Image Upload -->
+
+                    <div class="form-group">
+
+                        <label for="profileImage">
+
+                            Update Profile Image
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="profileImage"
+                            accept=".jpg,.jpeg,.png">
+
+                        <small>
+
+                            Supported formats: JPG, JPEG, PNG
+
+                        </small>
+
+                    </div>
+                                    </div>
+
+                <!--==================================================
+                        PROFILE ACTION BUTTONS
+                ==================================================-->
+
+                <div class="form-actions">
+
+                    <button type="submit" class="save-btn">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Changes
+
+                    </button>
+
+                    <button type="reset" class="reset-btn">
+
+                        <i class="fa-solid fa-rotate-left"></i>
+
+                        Reset
+
+                    </button>
+
+                    <a href="dashboard.html" class="cancel-btn">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                        Back to Dashboard
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </section>
+                <!--==================================================
+                        PAGE FOOTER
+        ==================================================-->
+
+        <footer class="page-footer">
+
+            <p>
+
+                © 2026 Student Management System |
+                Developed by Tamil Vanan
+
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!--==================================================
+                JAVASCRIPT FILE
+===================================================-->
+
+<script src="js/profile.js"></script>
+
+</body>
+
+</html>
