@@ -1,0 +1,511 @@
+/*==========================================================
+
+Project Name : Student Management System
+
+File Name    : profile.css
+
+Description  :
+Professional Administrator Profile Page Styling
+
+Author       : Tamil Vanan
+
+Version      : 1.0
+
+==========================================================*/
+
+
+/*==========================================================
+                    PAGE HEADER
+==========================================================*/
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.page-title h1{
+
+    font-size:32px;
+
+    color:#0f172a;
+
+    margin-bottom:8px;
+
+}
+
+.page-title p{
+
+    font-size:15px;
+
+    color:#64748b;
+
+}
+
+
+/*==========================================================
+                    PROFILE CARD
+==========================================================*/
+
+.profile-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+    margin-bottom:35px;
+
+}
+
+.profile-image img{
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:6px solid #2563eb;
+
+}
+
+.profile-info h2{
+
+    font-size:30px;
+
+    color:#0f172a;
+
+    margin-bottom:10px;
+
+}
+
+.role-badge{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.profile-info p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    max-width:700px;
+
+}
+/*==========================================================
+                    PROFILE FORM
+==========================================================*/
+
+.profile-form-section{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+    margin-bottom:30px;
+
+}
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.form-group.full-width{
+
+    grid-column:1 / -1;
+
+}
+
+
+/*==========================================================
+                    FORM LABELS
+==========================================================*/
+
+.form-group label{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#1e293b;
+
+    margin-bottom:10px;
+
+}
+
+
+/*==========================================================
+                    INPUTS & TEXTAREA
+==========================================================*/
+
+.form-group input,
+.form-group textarea{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-family:'Poppins',sans-serif;
+
+    outline:none;
+
+    transition:0.3s ease;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,0.15);
+
+}
+
+.form-group input[readonly]{
+
+    background:#f8fafc;
+
+    cursor:not-allowed;
+
+}
+/*==========================================================
+                    FORM ACTION BUTTONS
+==========================================================*/
+
+.form-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+
+}
+
+.save-btn,
+.reset-btn,
+.cancel-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all 0.3s ease;
+
+}
+
+
+/*==========================================================
+                    SAVE BUTTON
+==========================================================*/
+
+.save-btn{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+
+.save-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+
+/*==========================================================
+                    RESET BUTTON
+==========================================================*/
+
+.reset-btn{
+
+    background:#f59e0b;
+
+    color:#ffffff;
+
+}
+
+.reset-btn:hover{
+
+    background:#d97706;
+
+    transform:translateY(-3px);
+
+}
+
+
+/*==========================================================
+                    CANCEL BUTTON
+==========================================================*/
+
+.cancel-btn{
+
+    background:#ef4444;
+
+    color:#ffffff;
+
+}
+
+.cancel-btn:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-3px);
+
+}
+/*==========================================================
+                RESPONSIVE DESIGN (TABLET)
+==========================================================*/
+
+@media (max-width:991px){
+
+    .profile-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .profile-image img{
+
+        width:130px;
+
+        height:130px;
+
+    }
+
+    .profile-info p{
+
+        max-width:100%;
+
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/*==========================================================
+                RESPONSIVE DESIGN (MOBILE)
+==========================================================*/
+
+@media (max-width:768px){
+
+    .page-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .page-title h1{
+
+        font-size:26px;
+
+    }
+
+    .profile-card{
+
+        padding:25px;
+
+    }
+
+    .profile-info h2{
+
+        font-size:24px;
+
+    }
+
+    .profile-image img{
+
+        width:110px;
+
+        height:110px;
+
+    }
+
+    .profile-form-section{
+
+        padding:20px;
+
+    }
+
+}
+/*==========================================================
+                FILE INPUT & HELPER TEXT
+==========================================================*/
+
+.form-group input[type="file"]{
+
+    padding:12px;
+
+    background:#f8fafc;
+
+    cursor:pointer;
+
+}
+
+.form-group small{
+
+    margin-top:8px;
+
+    color:#64748b;
+
+    font-size:13px;
+
+}
+
+
+/*==========================================================
+                MOBILE BUTTONS
+==========================================================*/
+
+@media (max-width:576px){
+
+    .form-actions{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .save-btn,
+    .reset-btn,
+    .cancel-btn{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
+
+
+/*==========================================================
+                FOOTER
+==========================================================*/
+
+.page-footer{
+
+    margin-top:40px;
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    border-top:1px solid #e2e8f0;
+
+}
+
+
+/*==========================================================
+                END OF FILE
+==========================================================*/
