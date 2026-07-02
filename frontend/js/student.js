@@ -21,6 +21,7 @@ Version      : 1.0
 document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Students Page Loaded Successfully.");
+    loadStudents();
 
     initializeSearch();
 
@@ -198,3 +199,45 @@ console.log("Backend  : Java Servlet");
 console.log("Database : MySQL");
 
 console.log("------------------------------------------");
+/*==========================================================
+                LOAD STUDENTS FROM API
+==========================================================*/
+
+function loadStudents() {
+
+    fetch("http://localhost:5000/api/students")
+
+        .then(response => response.json())
+
+        .then(result => {
+
+            const tableBody = document.getElementById("studentTableBody");
+
+            tableBody.innerHTML = "";
+
+            result.data.forEach(student => {
+
+                tableBody.innerHTML += `
+                    <tr>
+                        <td>${student.student_id}</td>
+                        <td>${student.full_name}</td>
+                        <td>${student.gender}</td>
+                        <td>${student.department}</td>
+                        <td>${student.academic_year}</td>
+                        <td>${student.email}</td>
+                        <td>${student.phone}</td>
+                        <td>${student.status}</td>
+                    </tr>
+                `;
+
+            });
+
+        })
+
+        .catch(error => {
+
+            console.error(error);
+
+        });
+
+}
