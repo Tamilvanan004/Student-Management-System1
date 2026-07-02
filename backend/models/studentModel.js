@@ -12,7 +12,52 @@ const getAllStudents = (callback) => {
         callback(null, results);
     });
 };
+// Add New Student
+const addStudent = (student, callback) => {
 
+    const sql = `
+        INSERT INTO students
+        (
+            student_id,
+            full_name,
+            email,
+            phone,
+            gender,
+            department,
+            academic_year,
+            dob,
+            parent_name,
+            parent_phone,
+            address,
+            status
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    db.query(
+        sql,
+        [
+            student.student_id,
+            student.full_name,
+            student.email,
+            student.phone,
+            student.gender,
+            student.department,
+            student.academic_year,
+            student.dob,
+            student.parent_name,
+            student.parent_phone,
+            student.address,
+            student.status
+        ],
+        (err, result) => {
+            if (err) return callback(err, null);
+
+            callback(null, result);
+        }
+    );
+};
 module.exports = {
-    getAllStudents
+    getAllStudents,
+    addStudent
 };
