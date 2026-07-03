@@ -47,8 +47,33 @@ const addStudent = (req, res) => {
     });
 
 };
+// Delete Student
+const deleteStudent = (req, res) => {
 
+    const id = req.params.id;
+
+    Student.deleteStudent(id, (err, result) => {
+
+        if (err) {
+
+            return res.status(500).json({
+                success: false,
+                message: "Failed to delete student",
+                error: err
+            });
+
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Student deleted successfully"
+        });
+
+    });
+
+};
 module.exports = {
     getStudents,
-    addStudent
+    addStudent,
+    deleteStudent
 };

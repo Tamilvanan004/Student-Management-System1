@@ -85,21 +85,39 @@ function initializeDeleteButtons() {
 
         button.addEventListener("click", function () {
 
+            const id = this.dataset.id;
+
             const confirmDelete = confirm(
                 "Are you sure you want to delete this student?"
             );
 
-            if (confirmDelete) {
+            if (!confirmDelete) return;
 
-                alert("Student deleted successfully. (Demo)");
+            fetch(`http://localhost:5000/api/students/${id}`, {
+                method: "DELETE"
+            })
+            .then(response => response.json())
+            .then(result => {
 
-            }
+                alert(result.message);
+
+                loadStudents();
+
+            })
+            .catch(error => {
+
+                console.error(error);
+
+                alert("Failed to delete student.");
+
+            });
 
         });
 
     });
 
 }
+
 /*==========================================================
                 VIEW STUDENT DETAILS
 ==========================================================*/
@@ -227,10 +245,21 @@ function loadStudents() {
                         <td>${student.email}</td>
                         <td>${student.phone}</td>
                         <td>${student.status}</td>
+                        <td>
+    <button class="view-btn" data-id="${student.id}">
+        View
+    </button>
+
+    <button class="delete-btn" data-id="${student.id}">
+        Delete
+    </button>
+</td>
                     </tr>
                 `;
 
             });
+            initializeViewButtons();
+            initializeDeleteButtons();
 
         })
 
