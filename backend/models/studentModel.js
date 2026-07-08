@@ -74,8 +74,25 @@ const deleteStudent = (id, callback) => {
     });
 
 };
+// Get Student By ID
+const getStudentById = (id, callback) => {
+
+    const sql = "SELECT * FROM students WHERE id = ?";
+
+    db.query(sql, [id], (err, result) => {
+
+        if (err) {
+            return callback(err, null);
+        }
+
+        callback(null, result[0]);
+
+    });
+
+};
 module.exports = {
     getAllStudents,
     addStudent,
-    deleteStudent
+    deleteStudent,
+    getStudentById
 };

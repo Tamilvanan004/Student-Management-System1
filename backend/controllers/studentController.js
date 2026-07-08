@@ -26,11 +26,12 @@ const getStudents = (req, res) => {
 };
 // Add New Student
 const addStudent = (req, res) => {
+    console.log(req.body);
 
     Student.addStudent(req.body, (err, result) => {
 
         if (err) {
-
+            console.error(err);
             return res.status(500).json({
                 success: false,
                 message: "Failed to add student",
@@ -72,8 +73,34 @@ const deleteStudent = (req, res) => {
     });
 
 };
+// Get Student By ID
+const getStudentById = (req, res) => {
+
+    const id = req.params.id;
+
+    Student.getStudentById(id, (err, student) => {
+
+        if (err) {
+
+            return res.status(500).json({
+                success: false,
+                message: "Failed to fetch student",
+                error: err
+            });
+
+        }
+
+        res.status(200).json({
+            success: true,
+            data: student
+        });
+
+    });
+
+};
 module.exports = {
     getStudents,
     addStudent,
-    deleteStudent
+    deleteStudent,
+    getStudentById
 };
