@@ -98,9 +98,37 @@ const getStudentById = (req, res) => {
     });
 
 };
+// Update Student
+const updateStudent = (req, res) => {
+
+    const id = req.params.id;
+
+    Student.updateStudent(id, req.body, (err, result) => {
+
+        if (err) {
+
+            console.error(err);
+
+            return res.status(500).json({
+                success: false,
+                message: "Failed to update student",
+                error: err
+            });
+
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Student updated successfully"
+        });
+
+    });
+
+};
 module.exports = {
     getStudents,
     addStudent,
     deleteStudent,
-    getStudentById
+    getStudentById,
+    updateStudent
 };

@@ -250,6 +250,10 @@ function loadStudents() {
         View
     </button>
 
+    <a href="edit-student.html?id=${student.id}" class="edit-btn">
+    Edit
+</a>
+
     <button class="delete-btn" data-id="${student.id}">
         Delete
     </button>
@@ -270,3 +274,4 @@ function loadStudents() {
         });
 
 }
+
