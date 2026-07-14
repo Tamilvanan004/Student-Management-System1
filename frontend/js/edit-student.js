@@ -5,7 +5,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Edit Student Page Loaded Successfully.");
-    
+
+    let currentStatus = "Active";
 
     // URL-la irundhu id edukkudhu
     const id = new URLSearchParams(window.location.search).get("id");
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(result => {
 
             const student = result.data;
+            currentStatus = student?.status || "Active";
 
             document.getElementById("studentId").value = student.student_id;
             document.getElementById("studentName").value = student.full_name;
@@ -56,7 +58,7 @@ document.getElementById("editStudentForm").addEventListener("submit", function(e
         parent_name: document.getElementById("parentName").value,
         parent_phone: document.getElementById("parentPhone").value,
         address: document.getElementById("address").value,
-        status: "Active"
+        status: currentStatus
     };
 
     fetch(`http://localhost:5000/api/students/${id}`, {

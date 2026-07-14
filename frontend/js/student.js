@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initializeSearch();
 
+    initializeDepartmentFilter();
+
+    initializeYearFilter();
+
     initializeDeleteButtons();
 
     initializeViewButtons();
@@ -36,43 +40,77 @@ document.addEventListener("DOMContentLoaded", function () {
                 STUDENT SEARCH
 ==========================================================*/
 
+
+function getCurrentFilters() {
+
+    return {
+        search: document.getElementById("studentSearch")?.value || "",
+        department: document.getElementById("departmentFilter")?.value || "",
+        year: document.getElementById("yearFilter")?.value || ""
+    };
+
+}
+
 function initializeSearch() {
 
     const searchInput = document.getElementById("studentSearch");
 
-    if (!searchInput) {
-
-        return;
-
-    }
+    if (!searchInput) return;
 
     searchInput.addEventListener("keyup", function () {
 
-        const filter = this.value.toLowerCase();
+        console.log("Search:", this.value);
 
-        const rows = document.querySelectorAll(".student-table tbody tr");
+        const filters = getCurrentFilters();
 
-        rows.forEach(function (row) {
+        loadStudents(
+            this.value,
+            filters.department,
+            filters.year
+        );
 
-            const text = row.textContent.toLowerCase();
+    });
 
-            if (text.includes(filter)) {
+}
+function initializeDepartmentFilter() {
 
-                row.style.display = "";
+    const departmentFilter = document.getElementById("departmentFilter");
 
-            } else {
+    if (!departmentFilter) return;
 
-                row.style.display = "none";
+    departmentFilter.addEventListener("change", function () {
 
-            }
+        const filters = getCurrentFilters();
 
-        });
+        loadStudents(
+            filters.search,
+            this.value,
+            filters.year
+        );
 
     });
 
 }
 
+function initializeYearFilter() {
 
+    const yearFilter = document.getElementById("yearFilter");
+
+    if (!yearFilter) return;
+
+    yearFilter.addEventListener("change", function () {
+
+        const filters = getCurrentFilters();
+
+        loadStudents(
+            filters.search,
+            filters.department,
+            this.value
+        );
+
+    });
+
+}
 /*==========================================================
                 DELETE CONFIRMATION
 ==========================================================*/
@@ -217,51 +255,146 @@ console.log("Backend  : Java Servlet");
 console.log("Database : MySQL");
 
 console.log("------------------------------------------");
+
+function deduplicateStudents(students) {
+
+    const uniqueStudents = [];
+
+    const seen = new Set();
+
+    students.forEach((student) => {
+
+        const key = student.id ?? student.student_id ?? student.email ?? `${student.full_name || ""}-${student.department || ""}-${student.academic_year || ""}`;
+
+        if (seen.has(key)) {
+
+            return;
+
+        }
+
+        seen.add(key);
+
+        uniqueStudents.push(student);
+
+    });
+
+    return uniqueStudents;
+
+}
+
 /*==========================================================
                 LOAD STUDENTS FROM API
 ==========================================================*/
+function loadStudents(search = "", department = "", year = "") {
 
-function loadStudents() {
+    const filters = arguments.length === 0
+        ? getCurrentFilters()
+        : { search, department, year };
 
-    fetch("http://localhost:5000/api/students")
+    console.log("Department:", filters.department);
+    console.log("Year:", filters.year);
 
+    const params = new URLSearchParams();
+
+    if (filters.search) {
+        params.append("search", filters.search);
+    }
+
+    if (filters.department) {
+        params.append("department", filters.department);
+    }
+
+    if (filters.year) {
+        params.append("year", filters.year);
+    }
+
+    fetch(`http://localhost:5000/api/students?${params.toString()}`)
         .then(response => response.json())
 
         .then(result => {
 
+            console.log(result);
+
             const tableBody = document.getElementById("studentTableBody");
+
+            const studentList = deduplicateStudents(Array.isArray(result.data) ? result.data : []);
+
+            const countDisplay = document.getElementById("studentCountDisplay");
+
+            const summaryCount = document.getElementById("summaryTotalStudents");
+
+            const summaryActive = document.getElementById("summaryActiveStudents");
+
+            const summaryInactive = document.getElementById("summaryInactiveStudents");
+
+            const activeCount = studentList.filter((student) => {
+
+                return String(student.status || "").toLowerCase() === "active";
+
+            }).length;
+
+            const inactiveCount = studentList.filter((student) => {
+
+                return String(student.status || "").toLowerCase() !== "active";
+
+            }).length;
+
+            if (countDisplay) {
+
+                countDisplay.textContent = `Total Students : ${studentList.length}`;
+
+            }
+
+            if (summaryCount) {
+
+                summaryCount.textContent = studentList.length;
+
+            }
+
+            if (summaryActive) {
+
+                summaryActive.textContent = activeCount;
+
+            }
+
+            if (summaryInactive) {
+
+                summaryInactive.textContent = inactiveCount;
+
+            }
 
             tableBody.innerHTML = "";
 
-            result.data.forEach(student => {
+            studentList.forEach(student => {
 
                 tableBody.innerHTML += `
-                    <tr>
-                        <td>${student.student_id}</td>
-                        <td>${student.full_name}</td>
-                        <td>${student.gender}</td>
-                        <td>${student.department}</td>
-                        <td>${student.academic_year}</td>
-                        <td>${student.email}</td>
-                        <td>${student.phone}</td>
-                        <td>${student.status}</td>
-                        <td>
-    <button class="view-btn" data-id="${student.id}">
-        View
-    </button>
+                <tr>
+                    <td>${student.student_id}</td>
+                    <td>${student.full_name}</td>
+                    <td>${student.gender}</td>
+                    <td>${student.department}</td>
+                    <td>${student.academic_year}</td>
+                    <td>${student.email}</td>
+                    <td>${student.phone}</td>
+                    <td>${student.status}</td>
+                    <td>
+                        <button class="view-btn" data-id="${student.id}">
+                            View
+                        </button>
 
-    <a href="edit-student.html?id=${student.id}" class="edit-btn">
-    Edit
-</a>
+                        <a href="edit-student.html?id=${student.id}" class="edit-btn">
+                            Edit
+                        </a>
 
-    <button class="delete-btn" data-id="${student.id}">
-        Delete
-    </button>
-</td>
-                    </tr>
+                        <button class="delete-btn" data-id="${student.id}">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
                 `;
 
             });
+
             initializeViewButtons();
             initializeDeleteButtons();
 

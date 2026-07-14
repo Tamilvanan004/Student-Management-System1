@@ -306,7 +306,7 @@ Version      : 1.0
 
                         <h3>Courses</h3>
 
-                        <h2>12</h2>
+                        <h2 id="courseCount">0</h2>
 
                         <p>Available Courses</p>
 
@@ -328,7 +328,7 @@ Version      : 1.0
 
                         <h3>Administrators</h3>
 
-                        <h2>3</h2>
+                        <h2 id="adminCount">1</h2>
 
                         <p>System Administrators</p>
 
@@ -415,79 +415,7 @@ Version      : 1.0
 
                         </thead>
 
-                        <tbody>
-
-                            <tr>
-
-                                <td>STU001</td>
-
-                                <td>Rahul Kumar</td>
-
-                                <td>AI & DS</td>
-
-                                <td>II Year</td>
-
-                                <td>
-                                    <span class="status active">
-                                        Active
-                                    </span>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>STU002</td>
-
-                                <td>Priya Sharma</td>
-
-                                <td>CSE</td>
-
-                                <td>III Year</td>
-
-                                <td>
-                                    <span class="status active">
-                                        Active
-                                    </span>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>STU003</td>
-
-                                <td>Arun Kumar</td>
-
-                                <td>ECE</td>
-
-                                <td>I Year</td>
-
-                                <td>
-                                    <span class="status inactive">
-                                        Inactive
-                                    </span>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>STU004</td>
-
-                                <td>Divya</td>
-
-                                <td>AI & DS</td>
-
-                                <td>IV Year</td>
-
-                                <td>
-                                    <span class="status active">
-                                        Active
-                                    </span>
-                                </td>
-
-                            </tr>
+                        <tbody id="recentStudentsTableBody">
 
                         </tbody>
 
@@ -504,11 +432,21 @@ Version      : 1.0
 
                 <!--============ SYSTEM INFORMATION ============-->
 
-                <div class="info-card">
+                <div class="info-card system-info-card">
 
-                    <h2>System Information</h2>
+                    <div class="info-card-header">
 
-                    <ul>
+                        <h2>System Information</h2>
+
+                        <button type="button" class="toggle-info-btn" aria-expanded="false">
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+                    </div>
+
+                    <ul class="info-list hidden">
 
                         <li>
 

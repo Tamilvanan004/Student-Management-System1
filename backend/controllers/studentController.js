@@ -3,7 +3,11 @@ const Student = require("../models/studentModel");
 // Get All Students
 const getStudents = (req, res) => {
 
-    Student.getAllStudents((err, students) => {
+    const search = req.query.search || "";
+    const department = req.query.department || "";
+    const year = req.query.year || "";
+
+Student.getAllStudents(search, department, year, (err, students) => {
 
         if (err) {
 

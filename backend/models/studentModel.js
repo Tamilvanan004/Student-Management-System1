@@ -1,16 +1,57 @@
 const db = require("../config/db");
 
 // Get All Students
-const getAllStudents = (callback) => {
-    const sql = "SELECT * FROM students ORDER BY id DESC";
+const getAllStudents = (search, department, year, callback) => {
 
-    db.query(sql, (err, results) => {
+let sql = "SELECT * FROM students WHERE 1=1";
+let values = [];
+
+// Search Filter
+if (search) {
+
+    sql += `
+        AND (
+            student_id LIKE ?
+            OR full_name LIKE ?
+        )
+    `;
+
+    values.push(`%${search}%`);
+    values.push(`%${search}%`);
+
+}
+
+// Department Filter
+if (department) {
+
+    sql += " AND department = ?";
+
+    values.push(department);
+
+}
+
+// Year Filter
+if (year) {
+
+    sql += " AND academic_year = ?";
+
+    values.push(year);
+
+}
+
+sql += " ORDER BY id DESC";
+console.log(sql);
+console.log(values);
+    db.query(sql, values, (err, results) => {
+
         if (err) {
             return callback(err, null);
         }
 
         callback(null, results);
+
     });
+
 };
 // Add New Student
 const addStudent = (student, callback) => {
