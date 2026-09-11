@@ -43,6 +43,8 @@ jobs:
           cache-dependency-path: backend/package-lock.json
       - name: Install backend dependencies
         run: npm ci --prefix backend
+      - name: Dependency security audit
+        run: npm audit --prefix backend --audit-level=high
       - name: Create database schema
         run: npm run db:setup --prefix backend
       - name: Seed CI administrator
