@@ -1,0 +1,13 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const {validateStudent,parseListQuery}=require('../validators/studentValidator');
+const {validateLogin,validatePasswordChange}=require('../validators/authValidator');
+const {hashPassword,verifyPassword,createSessionToken,hashToken}=require('../utils/password');
+const validStudent={student_id:'ADS001',full_name:'Test Student',email:'student@example.com',phone:'9876543210',gender:'Male',department:'AI & DS',academic_year:'III Year',dob:'2005-01-15',parent_name:'Test Parent',parent_phone:'9876543211',address:'Chennai, Tamil Nadu',status:'Active'};
+test('valid student payload is accepted and normalized',()=>{const r=validateStudent({...validStudent,student_id:'ads001',email:' STUDENT@EXAMPLE.COM '});assert.equal(r.valid,true);assert.equal(r.value.student_id,'ADS001');assert.equal(r.value.email,'student@example.com');});
+test('invalid student payload returns validation errors',()=>{const r=validateStudent({...validStudent,email:'bad-email',dob:'2999-01-01'});assert.equal(r.valid,false);assert.ok(r.errors.some((m)=>m.includes('email')));assert.ok(r.errors.some((m)=>m.includes('future')));});
+test('list query clamps page size and validates filters',()=>{const q=parseListQuery({page:'-4',limit:'999',department:'Unknown',year:'III Year'});assert.equal(q.page,1);assert.equal(q.limit,100);assert.equal(q.department,'');assert.equal(q.year,'III Year');});
+test('login validation rejects weak credentials',()=>assert.equal(validateLogin({email:'bad',password:'123'}).valid,false));
+test('password change requires stronger new password',()=>assert.equal(validatePasswordChange({current_password:'OldPass123',new_password:'password'}).valid,false));
+test('password hashes verify without plain text storage',()=>{const {salt,hash}=hashPassword('StrongPass123');assert.equal(verifyPassword('StrongPass123',salt,hash),true);assert.equal(verifyPassword('WrongPass123',salt,hash),false);});
+test('session tokens can be safely hashed',()=>{const token=createSessionToken();assert.equal(token.length,64);assert.equal(hashToken(token).length,64);});
