@@ -1,21 +1,19 @@
 {
-  "name": "student-management-system1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "student-management-system",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portfolio-ready full-stack Student Management System built with HTML, CSS, JavaScript, Node.js, Express and MySQL.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm --prefix backend start",
+    "dev": "npm --prefix backend run dev",
+    "test": "npm --prefix backend test",
+    "db:setup": "npm --prefix backend run db:setup",
+    "admin:create": "npm --prefix backend run admin:create"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tamilvanan004/Student-Management-System1.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Tamilvanan004/Student-Management-System1/issues"
-  },
-  "homepage": "https://github.com/Tamilvanan004/Student-Management-System1#readme"
+  "author": "Tamil Vanan",
+  "license": "MIT"
 }
